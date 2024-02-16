@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 40,
+    fontSize: 70,
     fontFamily: 'Times New Roman', // Change the font family to your desired font
   },
 });
