@@ -65,8 +65,8 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Messages" component={MessageScreen} />
-        <Tab.Screen name="Preferences" component={Preferences} />
-        <Tab.Screen name="Home" component={HomeScreen} />
+        {/* <Tab.Screen name="Preferences" component={Preferences} /> */}
+        {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
         <Tab.Screen name="Events" component={EventSelectionScreen} />
         <Tab.Screen name="Explore Genre's" component={GenreSelectionScreen} />
       </Tab.Navigator>
