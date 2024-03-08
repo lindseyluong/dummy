@@ -7,6 +7,7 @@ import Preferences from './view/preferencesPage';
 import MessageScreen from './view/messagePage';
 import EventSelectionScreen from './view/musicEventPage';
 import GenreSelectionScreen from './view/genrePage';
+import ProfileScreen from './view/profilePage';
 
 
 
@@ -67,7 +68,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Messages" component={MessageScreen} />
         <Tab.Screen name="Preferences" component={Preferences} />
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Home" component={ProfileScreen} />
         <Tab.Screen name="Events" component={EventSelectionScreen} />
         <Tab.Screen name="Explore Genre's" component={GenreSelectionScreen} />
       </Tab.Navigator>
