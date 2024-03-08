@@ -17,14 +17,17 @@ const MessageScreen = ({ navigation }) => {
             item.message.toLowerCase().includes(search.toLowerCase())
   );
 
-  const renderBackButton = () => (
-    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-      <Ionicons name="ios-arrow-back" size={24} color="black" />
-    </TouchableOpacity>
-  );
+  const renderBackButton = () => {};
+    // <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+    //   <Ionicons name="ios-arrow-back" size={24} color="black" />
+    // </TouchableOpacity>
+
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={renderBackButton} style={styles.backButton}>
+        <Text style={styles.backButtonText}>Back</Text>
+      </TouchableOpacity>
       <SearchBar
         placeholder="Search messages..."
         onChangeText={setSearch}
@@ -44,7 +47,7 @@ const MessageScreen = ({ navigation }) => {
             </View>
             <View style={styles.timeContainer}>
               <Text style={styles.timeText}>{item.time}</Text>
-              <Ionicons name="ios-arrow-forward" size={20} color="gray" />
+              {/* <Ionicons name="ios-arrow-forward" size={20} color="gray" /> */}
             </View>
           </TouchableOpacity>
         )}
@@ -53,10 +56,10 @@ const MessageScreen = ({ navigation }) => {
   );
 };
 
-MessageScreen.navigationOptions = ({ navigation }) => ({
-  headerLeft: () => renderBackButton(),
-  headerTitle: 'Messages', // You can customize the title
-});
+// MessageScreen.navigationOptions = ({ navigation }) => ({
+//   headerLeft: () => renderBackButton(),
+//   headerTitle: 'Mess', // You can customize the title
+// });
 
 const styles = StyleSheet.create({
   container: {
@@ -106,6 +109,10 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginLeft: 16,
+  },
+  backButtonText: {
+    fontSize: 16,
+    color: '#007AFF',
   },
 });
 
