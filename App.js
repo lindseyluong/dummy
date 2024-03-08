@@ -3,6 +3,10 @@ import { Button, Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import MessageScreen from './view/messagePage';
+import EventSelectionScreen from './view/musicEventPage';
+import GenreSelectionScreen from './view/genrePage';
+
 
 
 // function ExploreGenre({ navigation }) {
@@ -63,8 +67,8 @@ export default function App() {
         <Tab.Screen name="Messages" component={MessageScreen} />
         <Tab.Screen name="Preferences" component={Preferences} />
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Events" component={Events} />
-        <Tab.Screen name="Explore Genre's" component={ExploreGenre} />
+        <Tab.Screen name="Events" component={EventSelectionScreen} />
+        <Tab.Screen name="Explore Genre's" component={GenreSelectionScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
