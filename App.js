@@ -3,6 +3,7 @@ import { Button, Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import LoginScreen from './view/loginPage';
 import Preferences from './view/preferencesPage';
 import MessageScreen from './view/messagePage';
 import EventSelectionScreen from './view/musicEventPage';
@@ -66,6 +67,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
+        <Tab.Screen name="Login" component={LoginScreen} />
         <Tab.Screen name="Messages" component={MessageScreen} />
         <Tab.Screen name="Preferences" component={Preferences} />
         <Tab.Screen name="Home" component={ProfileScreen} />
