@@ -59,8 +59,6 @@ import ProfileScreen from './view/profilePage';
 //   );
 // }
 
-
-
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -77,5 +75,4 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
 
