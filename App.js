@@ -8,16 +8,21 @@ import 'react-native-gesture-handler';
 
 
 import LoginScreen from './view/loginPage';
+import PreferencesScreen from './view/preferencesPage';
 import BasicInfo from './view/basicPage';
 import BirthScreen from './view/birthDate';
 import FinalScreen from './view/finalPage';
-import Preferences from './view/preferencesPage';
 import MessageScreen from './view/messagePage';
 import EventSelectionScreen from './view/musicEventPage';
 import GenreSelectionScreen from './view/genrePage';
 import ProfileScreen from './view/profilePage';
 import GenderScreen from './view/genderPage';
+import AgeScreen from './view/agePage';
+import DistanceScreen from './view/distancePage';
+import ReligionScreen from './view/religionPage';
+import EthnicityScreen from './view/ethnicityPage';
 import PlaylistScreen from './view/playlistPage';
+
 
 
 const Drawer = createDrawerNavigator();
@@ -27,8 +32,12 @@ const Stack = createNativeStackNavigator();
 function PreferencesStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Preferences" component={Preferences}/>
+      <Stack.Screen name="Preferences" component={PreferencesScreen}/>
       <Stack.Screen name="Gender" component={GenderScreen}/>
+      <Stack.Screen name="Age" component={AgeScreen}/>
+      <Stack.Screen name="Distance" component={DistanceScreen}/>
+      <Stack.Screen name="Religion" component={ReligionScreen}/>
+      <Stack.Screen name="Ethnicity" component={EthnicityScreen}/>
     </Stack.Navigator>
   );
 }
@@ -48,7 +57,7 @@ function InsidePagesNavigation(){
   return (
       <Tab.Navigator>
         <Tab.Screen name="Messages" component={MessageScreen} />
-        <Tab.Screen name="Preferences" component={PreferencesStack} options={{headerShown: false}}/>
+        <Tab.Screen name="Preference" component={PreferencesStack} options={{headerShown: false}}/>
         <Tab.Screen name="Home" component={HomePageStack} options={{headerShown: false}}/>
         <Tab.Screen name="Events" component={EventSelectionScreen} />
         <Tab.Screen name="Explore Genre's" component={GenreSelectionScreen} />
