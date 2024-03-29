@@ -8,6 +8,9 @@ import 'react-native-gesture-handler';
 
 
 import LoginScreen from './view/loginPage';
+import BasicInfo from './view/basicPage';
+import BirthScreen from './view/birthDate';
+import FinalScreen from './view/finalPage';
 import Preferences from './view/preferencesPage';
 import MessageScreen from './view/messagePage';
 import EventSelectionScreen from './view/musicEventPage';
@@ -70,6 +73,9 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="Login" component={LoginScreen}/>
+        <Drawer.Screen name="Basic" component={BasicInfo}/>
+        <Drawer.Screen name="BirthDate" component={BirthScreen}/>
+        <Drawer.Screen name="Final" component={FinalScreen}/>
         <Drawer.Screen name="InsideApp" component={InsidePagesNavigation}/>
       </Drawer.Navigator>
     </NavigationContainer>
