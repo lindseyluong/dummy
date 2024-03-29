@@ -5,13 +5,6 @@ import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from '@react-navigation/native';
 
 
-// styles
-// import {
-//     aboveThumbStyles,
-//     componentThumbStyles,
-//     styles,
-//     trackMarkStyles,
-// } from './styles';
 
 const thumbImage = require('./thumb.png');
 
@@ -22,7 +15,6 @@ const CustomThumb = () => (
         <Text>Any</Text>
     </View>
 );
-
 
 
 const SliderContainer = (props: {
@@ -85,41 +77,127 @@ const SliderContainer = (props: {
 const PreferencesPage = ({navigation}) => (
     <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
+            <Text style={styles.text}>Filter whose profiles you would like to see:</Text>
             <Pressable
                 onPress={() => {
                     navigation.navigate('Gender')
                 }}
-                style={({pressed}) => [
+                style= {({pressed}) => [
                 {
                     backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
-
+                    width: 360,
+                    height: 50,
+                    justifyContent: 'center',
+                    padding: 5
+                    
+        
                 }
                 ]}>
                 {({pressed}) => (
-                <Text>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+                <Text style={buttonTextStyle.text}>Gender</Text>
                 )}
             </Pressable>
-            <SliderContainer
-                caption="Age range"
-                sliderValue={[18, 30]}>
-                <Slider
-                    animateTransitions
-                    maximumTrackTintColor="#d3d3d3"
-                    maximumValue={85}
-                    minimumTrackTintColor="#1fb28a"
-                    minimumValue={18}
-                    step={1}
-                    thumbTintColor="#1a9274"
-                />
-            </SliderContainer>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
 
-            <SliderContainer caption="Maximum distance">
-                <Slider 
-                    step={1}
-                    maximumValue={100}
-                    minimumValue={1}
-                    />
-            </SliderContainer>
+            </View>
+
+            <Pressable
+                onPress={() => {
+                    navigation.navigate('Age')
+                }}
+                style= {({pressed}) => [
+                {
+                    backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+                    width: 360,
+                    height: 50,
+                    justifyContent: 'center',
+                    padding: 5
+                    
+        
+                }
+                ]}>
+                {({pressed}) => (
+                <Text style={buttonTextStyle.text}>Age</Text>
+                )}
+            </Pressable>
+
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+
+            </View>
+
+            <Pressable
+                onPress={() => {
+                    navigation.navigate('Distance')
+                }}
+                style= {({pressed}) => [
+                {
+                    backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+                    width: 360,
+                    height: 50,
+                    justifyContent: 'center',
+                    padding: 5
+                    
+        
+                }
+                ]}>
+                {({pressed}) => (
+                <Text style={buttonTextStyle.text}>Distance</Text>
+                )}
+            </Pressable>
+
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+
+            </View>
+
+            <Pressable
+                onPress={() => {
+                    navigation.navigate('Religion')
+                }}
+                style= {({pressed}) => [
+                {
+                    backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+                    width: 360,
+                    height: 50,
+                    justifyContent: 'center',
+                    padding: 5
+                    
+        
+                }
+                ]}>
+                {({pressed}) => (
+                <Text style={buttonTextStyle.text}>Religion</Text>
+                )}
+            </Pressable>
+
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+
+            </View>
+
+            <Pressable
+                onPress={() => {
+                    navigation.navigate('Ethnicity')
+                }}
+                style= {({pressed}) => [
+                {
+                    backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+                    width: 360,
+                    height: 50,
+                    justifyContent: 'center',
+                    padding: 5
+                    
+        
+                }
+                ]}>
+                {({pressed}) => (
+                <Text style={buttonTextStyle.text}>Ethnicity</Text>
+                )}
+            </Pressable>
+
+
 
 
         </ScrollView>
@@ -130,13 +208,24 @@ const PreferencesPage = ({navigation}) => (
 
 );
 
+const buttonTextStyle = StyleSheet.create({
+    text: {
+        color: '#000',
+        fontSize: 20,
+        alignContent: 'center'
+    },
+    container: {
+
+
+    }
+})
 
 const styles = StyleSheet.create({
     container: {
         alignItems: 'stretch',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         margin: 16,
-        paddingBottom: 32,
+        paddingBottom: 50,
     },
     sliderContainer: {
         paddingVertical: 16,
@@ -145,10 +234,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    vertical: {
-      
+    text:{
+        fontSize: 20,
+        paddingBottom: 20,
+        
     }
 });
+
 
 
 const componentThumbStyles = StyleSheet.create({
