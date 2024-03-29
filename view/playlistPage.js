@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Slider } from "@miblanchard/react-native-slider";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { SafeAreaView,useSafeAreaInsets } from 'react-native-safe-area-context';
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import { State } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-const playlistScreen = () => {
+
+const PlaylistScreen = ({navigation}) => {
+  const insets = useSafeAreaInsets();
   const [sliderValue, setSliderValue] = useState(0);
 
   const handlePlayPause = () => {
@@ -23,7 +29,24 @@ const playlistScreen = () => {
     console.log("Song Pressed:", songTitle);
   };
 
+  const handleGestureEvent = (event) => {
+    if (event.nativeEvent.state === State.ACTIVE && event.nativeEvent.translationX < -50) {
+      navigation.navigate('ProfilePage'); // Navigate to profile page
+    }
+  };
+
   return (
+
+    <GestureHandlerRootView style={{ flex: 1 }}>
+        <PanGestureHandler
+            onGestureEvent={handleGestureEvent}
+            minDeltaX={10}
+            minDeltaY={10}
+            activeOffsetX={10}
+            activeOffsetY={10}
+        >
+
+
     <View style={styles.container}>
       <View style={styles.playlistContainer}>
         {/* Playlist Content */}
@@ -90,6 +113,8 @@ const playlistScreen = () => {
         <Text style={styles.text2}>27</Text>
       </View>
     </View>
+    </PanGestureHandler>
+    </GestureHandlerRootView>
   );
 };
 
@@ -110,7 +135,7 @@ const styles = StyleSheet.create({
   },
   playlistContainer: {
     position: 'absolute',
-    bottom: 300,
+    bottom: 250,
     left: 25,
     right: 25,
     height: 325,
@@ -195,4 +220,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default playlistScreen;
+export default PlaylistScreen;

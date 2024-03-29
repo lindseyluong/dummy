@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Slider } from "@miblanchard/react-native-slider";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   const [sliderValue, setSliderValue] = useState(0);
 
   const handlePlayPause = () => {
@@ -20,7 +23,22 @@ const ProfileScreen = () => {
     // Add logic for previous button
   };
 
+  const handleGestureEvent = (event) => {
+    if (event.nativeEvent.state === State.ACTIVE && event.nativeEvent.translationX > 50) {
+      navigation.goBack(); // Navigate back to previous page
+    }
+  };
+
   return (
+
+    <GestureHandlerRootView style={{ flex: 1 }}>
+        <PanGestureHandler
+            onGestureEvent={handleGestureEvent}
+            minDeltaX={10}
+            minDeltaY={10}
+            activeOffsetX={10}
+            activeOffsetY={10}
+        >
     <View style={styles.container}>
       <View style={styles.rectangle}>
         <Text style={styles.text3}>A green flag is...</Text>
@@ -57,8 +75,9 @@ const ProfileScreen = () => {
       </View>
       <Image source={require('./Peach.jpeg')}
       style={styles.image} />
-      
     </View>
+    </PanGestureHandler> 
+     </GestureHandlerRootView>
   );
 };
 
