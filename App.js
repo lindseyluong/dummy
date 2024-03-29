@@ -11,6 +11,7 @@ import EventSelectionScreen from './view/musicEventPage';
 import GenreSelectionScreen from './view/genrePage';
 import ProfileScreen from './view/profilePage';
 import GenderScreen from './view/genderPage';
+import PlaylistScreen from './view/playlistPage';
 
 
 
@@ -73,6 +74,15 @@ function PreferencesStack() {
   );
 }
 
+function HomePageStack(){
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="PlaylistPage" component={PlaylistScreen}/>
+      <Stack.Screen name="ProfilePage" component={ProfileScreen}/>
+    </Stack.Navigator>
+  )
+}
+
 
 export default function App() {
   return (
@@ -81,7 +91,7 @@ export default function App() {
         <Tab.Screen name="Login" component={LoginScreen} />
         <Tab.Screen name="Messages" component={MessageScreen} />
         <Tab.Screen name="Preferences" component={PreferencesStack} options={{headerShown: false}}/>
-        <Tab.Screen name="Home" component={ProfileScreen} />
+        <Tab.Screen name="Home" component={HomePageStack} options={{headerShown: false}}/>
         <Tab.Screen name="Events" component={EventSelectionScreen} />
         <Tab.Screen name="Explore Genre's" component={GenreSelectionScreen} />
       </Tab.Navigator>
