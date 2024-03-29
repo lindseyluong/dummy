@@ -11,7 +11,15 @@ import LoginScreen from './view/loginPage';
 import PreferencesScreen from './view/preferencesPage';
 import BasicInfo from './view/basicPage';
 import BirthScreen from './view/birthDate';
+import EmailScreen from './view/EmailScreen';
+import Password from './view/Password';
+import LikeScreen from './view/LikeScreen';
 import FinalScreen from './view/finalPage';
+
+import Preferences from './view/preferencesPage';
+import PhotoScreen from './view/PhotoScreen';
+
+
 import MessageScreen from './view/messagePage';
 import EventSelectionScreen from './view/musicEventPage';
 import GenreSelectionScreen from './view/genrePage';
@@ -55,12 +63,12 @@ function HomePageStack(){
 
 function InsidePagesNavigation(){
   return (
-      <Tab.Navigator>
+      <Tab.Navigator initialRouteName='Home'>
         <Tab.Screen name="Messages" component={MessageScreen} />
         <Tab.Screen name="Preference" component={PreferencesStack} options={{headerShown: false}}/>
         <Tab.Screen name="Home" component={HomePageStack} options={{headerShown: false}}/>
+        <Tab.Screen name="LikeScreen" component={LikeScreen} />
         <Tab.Screen name="Events" component={EventSelectionScreen} />
-        <Tab.Screen name="Explore Genre's" component={GenreSelectionScreen} />
       </Tab.Navigator>
   );
 }
@@ -84,6 +92,10 @@ export default function App() {
         <Drawer.Screen name="Login" component={LoginScreen}/>
         <Drawer.Screen name="Basic" component={BasicInfo}/>
         <Drawer.Screen name="BirthDate" component={BirthScreen}/>
+        <Drawer.Screen name="Email" component={EmailScreen}/>
+        <Drawer.Screen name="Password" component={Password}/>
+        <Drawer.Screen name="PhotoScreen" component={PhotoScreen}/>
+        <Drawer.Screen name="Explore Genre's" component={GenreSelectionScreen} />
         <Drawer.Screen name="Final" component={FinalScreen}/>
         <Drawer.Screen name="InsideApp" component={InsidePagesNavigation}/>
       </Drawer.Navigator>
