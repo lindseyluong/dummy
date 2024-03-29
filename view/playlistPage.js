@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Slider } from "@miblanchard/react-native-slider";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { SafeAreaView,useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import { State } from 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-
-const PlaylistScreen = ({navigation}) => {
+const PlaylistScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
   const [sliderValue, setSliderValue] = useState(0);
 
@@ -35,85 +34,98 @@ const PlaylistScreen = ({navigation}) => {
     }
   };
 
+  const handleHeartPress = () => {
+    // Add logic for heart press
+    console.log('Heart pressed!');
+  };
+
+  const handleShufflePress = () => {
+    // Add logic for shuffle press
+    console.log('Shuffle pressed!');
+  };
+
   return (
-
     <GestureHandlerRootView style={{ flex: 1 }}>
-        <PanGestureHandler
-            onGestureEvent={handleGestureEvent}
-            minDeltaX={10}
-            minDeltaY={10}
-            activeOffsetX={10}
-            activeOffsetY={10}
-        >
-
-
-    <View style={styles.container}>
-      <View style={styles.playlistContainer}>
-        {/* Playlist Content */}
-        <Text style={styles.playlistTitle}>Playlist</Text>
-        {/* Placeholder for songs */}
-        <View style={styles.songContainer}>
-          <TouchableOpacity onPress={() => handleSongPress("Song 1")} style={styles.songInfo}>
-            <Text style={styles.songTitle}>Song 1</Text>
-            <Text style={styles.songArtist}>Artist 1</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handlePlayPause} style={styles.playButton}>
-            <Icon name="play" size={20} color="white" />
-          </TouchableOpacity>
+      <PanGestureHandler
+        onGestureEvent={handleGestureEvent}
+        minDeltaX={10}
+        minDeltaY={10}
+        activeOffsetX={10}
+        activeOffsetY={10}
+      >
+        <View style={styles.container}>
+          <View style={styles.playlistContainer}>
+            <Text style={styles.playlistTitle}>Playlist</Text>
+            {/* Placeholder for songs */}
+            <View style={styles.songContainer}>
+              <TouchableOpacity onPress={() => handleSongPress("Song 1")} style={styles.songInfo}>
+                <Text style={styles.songTitle}>Song 1</Text>
+                <Text style={styles.songArtist}>Artist 1</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handlePlayPause} style={styles.playButton}>
+                <Icon name="play" size={20} color="white" />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.songContainer}>
+              <TouchableOpacity onPress={() => handleSongPress("Song 2")} style={styles.songInfo}>
+                <Text style={styles.songTitle}>Song 2</Text>
+                <Text style={styles.songArtist}>Artist 2</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handlePlayPause} style={styles.playButton}>
+                <Icon name="play" size={20} color="white" />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.songContainer}>
+              <TouchableOpacity onPress={() => handleSongPress("Song 3")} style={styles.songInfo}>
+                <Text style={styles.songTitle}>Song 3</Text>
+                <Text style={styles.songArtist}>Artist 3</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handlePlayPause} style={styles.playButton}>
+                <Icon name="play" size={20} color="white" />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.iconContainer}>
+            <TouchableOpacity onPress={handleHeartPress} style={styles.iconButton}>
+              <Icon name="heart" size={30} color='rgb(51, 51, 51)' />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleShufflePress} style={styles.iconButton}>
+              <Icon name="random" size={30} color='rgb(51, 51, 51)' />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.rectangle}>
+            {/* Current Song Display */}
+            <Text style={styles.text3}>song title</Text>
+            <Text style={styles.text4}>artist name</Text>
+            <Slider
+              style={styles.slider}
+              minimumValue={0}
+              maximumValue={100}
+              minimumTrackTintColor="#808080"
+              maximumTrackTintColor="#9E9E9E"
+              thumbTintColor="#f2f2f2"
+              thumbStyle={styles.thumbStyle}
+              value={sliderValue}
+              onValueChange={(value) => setSliderValue(value)}
+            />
+            <View style={styles.controlButtons}>
+              <TouchableOpacity onPress={handlePrevious} style={styles.controlButton}>
+                <Icon name="step-backward" size={30} color="white" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handlePlayPause} style={styles.controlButton}>
+                <Icon name="play" size={30} color="white" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleNext} style={styles.controlButton}>
+                <Icon name="step-forward" size={30} color="white" />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.text1}>Princess Peach</Text>
+            <Text style={styles.text2}>27</Text>
+          </View>
         </View>
-        <View style={styles.songContainer}>
-          <TouchableOpacity onPress={() => handleSongPress("Song 2")} style={styles.songInfo}>
-            <Text style={styles.songTitle}>Song 2</Text>
-            <Text style={styles.songArtist}>Artist 2</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handlePlayPause} style={styles.playButton}>
-            <Icon name="play" size={20} color="white" />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.songContainer}>
-          <TouchableOpacity onPress={() => handleSongPress("Song 3")} style={styles.songInfo}>
-            <Text style={styles.songTitle}>Song 3</Text>
-            <Text style={styles.songArtist}>Artist 3</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handlePlayPause} style={styles.playButton}>
-            <Icon name="play" size={20} color="white" />
-          </TouchableOpacity>
-        </View>
-        {/* End of Playlist Content */}
-      </View>
-      <View style={styles.rectangle}>
-        {/* Current Song Display */}
-        <Text style={styles.text3}>song title</Text>
-        <Text style={styles.text4}>artist name</Text>
-        <Slider
-          style={styles.slider}
-          minimumValue={0}
-          maximumValue={100}
-          minimumTrackTintColor="#808080"
-          maximumTrackTintColor="#9E9E9E"
-          thumbTintColor="#f2f2f2"
-          thumbStyle={styles.thumbStyle}
-          value={sliderValue}
-          onValueChange={(value) => setSliderValue(value)}
-        />
-        <View style={styles.controlButtons}>
-          <TouchableOpacity onPress={handlePrevious} style={styles.controlButton}>
-            <Icon name="step-backward" size={30} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handlePlayPause} style={styles.controlButton}>
-            <Icon name="play" size={30} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleNext} style={styles.controlButton}>
-            <Icon name="step-forward" size={30} color="white" />
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.text1}>Princess Peach</Text>
-        <Text style={styles.text2}>27</Text>
-      </View>
-    </View>
-    </PanGestureHandler>
+      </PanGestureHandler>
     </GestureHandlerRootView>
   );
 };
@@ -128,9 +140,9 @@ const styles = StyleSheet.create({
     bottom: 20,
     left: 25,
     right: 25,
-    height: 170, // Adjust the height as needed
-    backgroundColor: 'rgb(51, 51, 51)', // White color with 30% opacity
-    borderRadius: 20, // Adjust the border radius as needed
+    height: 170,
+    backgroundColor: 'rgb(51, 51, 51)',
+    borderRadius: 20,
     padding: 15,
   },
   playlistContainer: {
@@ -139,7 +151,7 @@ const styles = StyleSheet.create({
     left: 25,
     right: 25,
     height: 325,
-    backgroundColor: 'rgb(51, 51, 51)', // Adjust the background color and opacity as needed
+    backgroundColor: 'rgb(51, 51, 51)',
     borderRadius: 20,
     padding: 15,
   },
@@ -176,9 +188,9 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   thumbStyle: {
-    width: 5,  // Adjust the width to make the thumb smaller
-    height: 5, // Adjust the height to make the thumb smaller
-    borderRadius: 20, // Adjust the borderRadius to make the thumb a circle
+    width: 5,
+    height: 5,
+    borderRadius: 20,
   },
   textContainer: {
     flexDirection: 'row',
@@ -207,7 +219,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: 'white',
     textAlign: 'center',
-    //fontWeight: 'bold',
   },
   controlButtons: {
     flexDirection: 'row',
@@ -217,6 +228,16 @@ const styles = StyleSheet.create({
   controlButton: {
     backgroundColor: 'rgb(51, 51, 51)',
     borderRadius: 5,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    position: 'absolute',
+    bottom: 200,
+    alignSelf: 'center',
+  },
+  iconButton: {
+    marginTop: 10,
   },
 });
 
