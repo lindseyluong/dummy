@@ -1403,17 +1403,10 @@
     json5 "^2.2.2"
     write-file-atomic "^2.3.0"
 
-
 "@expo/metro-config@~0.17.0", "@expo/metro-config@0.17.6":
   version "0.17.6"
   resolved "https://registry.npmjs.org/@expo/metro-config/-/metro-config-0.17.6.tgz"
   integrity sha512-WaC1C+sLX/Wa7irwUigLhng3ckmXIEQefZczB8DfYmleV6uhfWWo2kz/HijFBpV7FKs2cW6u8J/aBQpFkxlcqg==
-
-"@expo/metro-config@~0.17.0", "@expo/metro-config@0.17.4":
-  version "0.17.4"
-  resolved "https://registry.npmjs.org/@expo/metro-config/-/metro-config-0.17.4.tgz"
-  integrity sha512-PxqDMuVjXQeboa6Aj8kNj4iTxIpwpfoYlF803qOjf1LE1ePlREnWNwqy65ESCBnCmekYIO5hhm1Nksa+xCvuyg==
-
   dependencies:
     "@babel/core" "^7.20.0"
     "@babel/generator" "^7.20.5"
@@ -1953,17 +1946,10 @@
   resolved "https://registry.npmjs.org/@react-native/debugger-frontend/-/debugger-frontend-0.73.3.tgz"
   integrity sha512-RgEKnWuoo54dh7gQhV7kvzKhXZEhpF9LlMdZolyhGxHsBqZ2gXdibfDlfcARFFifPIiaZ3lXuOVVa4ei+uPgTw==
 
-
 "@react-native/dev-middleware@^0.73.6", "@react-native/dev-middleware@0.73.8":
   version "0.73.8"
   resolved "https://registry.npmjs.org/@react-native/dev-middleware/-/dev-middleware-0.73.8.tgz"
   integrity sha512-oph4NamCIxkMfUL/fYtSsE+JbGOnrlawfQ0kKtDQ5xbOjPKotKoXqrs1eGwozNKv7FfQ393stk1by9a6DyASSg==
-
-"@react-native/dev-middleware@^0.73.6", "@react-native/dev-middleware@0.73.7":
-  version "0.73.7"
-  resolved "https://registry.npmjs.org/@react-native/dev-middleware/-/dev-middleware-0.73.7.tgz"
-  integrity sha512-BZXpn+qKp/dNdr4+TkZxXDttfx8YobDh8MFHsMk9usouLm22pKgFIPkGBV0X8Do4LBkFNPGtrnsKkWk/yuUXKg==
-
   dependencies:
     "@isaacs/ttlcache" "^1.4.1"
     "@react-native/debugger-frontend" "0.73.3"
@@ -2674,7 +2660,6 @@ chalk@^2.0.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-
 chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
@@ -2700,12 +2685,10 @@ chalk@^4.1.0, chalk@^4.1.2:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-
 chalk@^5.3.0:
   version "5.3.0"
   resolved "https://registry.npmjs.org/chalk/-/chalk-5.3.0.tgz"
   integrity sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==
-
 
 charenc@~0.0.1, charenc@0.0.2:
   version "0.0.2"
@@ -3390,12 +3373,10 @@ expo-status-bar@~1.11.1:
   resolved "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.11.1.tgz"
   integrity sha512-ddQEtCOgYHTLlFUe/yH67dDBIoct5VIULthyT3LRJbEwdpzAgueKsX2FYK02ldh440V87PWKCamh7R9evk1rrg==
 
-
 expo@*, expo@^50.0.6:
-  version "50.0.6"
-  resolved "https://registry.npmjs.org/expo/-/expo-50.0.6.tgz"
-  integrity sha512-CVg0h9bmYeTWtw4EOL0HKNL+zu84YZl5nLWRPKrcpt8jox1VQQAYmvJGMdM5gSRxq5CFNLlWGxq9O8Zvfi1SOQ==
-
+  version "50.0.14"
+  resolved "https://registry.npmjs.org/expo/-/expo-50.0.14.tgz"
+  integrity sha512-yLPdxCMVAbmeEIpzzyAuJ79wvr6ToDDtQmuLDMAgWtjqP8x3CGddXxUe07PpKEQgzwJabdHvCLP5Bv94wMFIjQ==
   dependencies:
     "@babel/runtime" "^7.20.0"
     "@expo/cli" "0.17.8"
@@ -4494,17 +4475,10 @@ metro-cache@0.80.8:
     metro-core "0.80.8"
     rimraf "^3.0.2"
 
-
 metro-config@^0.80.3, metro-config@0.80.8:
   version "0.80.8"
   resolved "https://registry.npmjs.org/metro-config/-/metro-config-0.80.8.tgz"
   integrity sha512-VGQJpfJawtwRzGzGXVUoohpIkB0iPom4DmSbAppKfumdhtLA8uVeEPp2GM61kL9hRvdbMhdWA7T+hZFDlo4mJA==
-
-metro-config@^0.80.3, metro-config@0.80.6:
-  version "0.80.6"
-  resolved "https://registry.npmjs.org/metro-config/-/metro-config-0.80.6.tgz"
-  integrity sha512-vHYYvJpRTWYbmvqlR7i04xQpZCHJ6yfZ/xIcPdz2ssbdJGGJbiT1Aar9wr8RAhsccSxdJgfE5B1DB8Mo+DnhIg==
-
   dependencies:
     connect "^3.6.5"
     cosmiconfig "^5.0.5"
@@ -4514,17 +4488,10 @@ metro-config@^0.80.3, metro-config@0.80.6:
     metro-core "0.80.8"
     metro-runtime "0.80.8"
 
-
 metro-core@^0.80.3, metro-core@0.80.8:
   version "0.80.8"
   resolved "https://registry.npmjs.org/metro-core/-/metro-core-0.80.8.tgz"
   integrity sha512-g6lud55TXeISRTleW6SHuPFZHtYrpwNqbyFIVd9j9Ofrb5IReiHp9Zl8xkAfZQp8v6ZVgyXD7c130QTsCz+vBw==
-
-metro-core@^0.80.3, metro-core@0.80.6:
-  version "0.80.6"
-  resolved "https://registry.npmjs.org/metro-core/-/metro-core-0.80.6.tgz"
-  integrity sha512-fn4rryTUAwzFJWj7VIPDH4CcW/q7MV4oGobqR6NsuxZoIGYrVpK7pBasumu5YbCqifuErMs5s23BhmrDNeZURw==
-
   dependencies:
     lodash.throttle "^4.1.1"
     metro-resolver "0.80.8"
@@ -4559,7 +4526,6 @@ metro-resolver@0.80.8:
   resolved "https://registry.npmjs.org/metro-resolver/-/metro-resolver-0.80.8.tgz"
   integrity sha512-JdtoJkP27GGoZ2HJlEsxs+zO7jnDUCRrmwXJozTlIuzLHMRrxgIRRby9fTCbMhaxq+iA9c+wzm3iFb4NhPmLbQ==
 
-
 metro-runtime@^0.80.3, metro-runtime@0.80.8:
   version "0.80.8"
   resolved "https://registry.npmjs.org/metro-runtime/-/metro-runtime-0.80.8.tgz"
@@ -4571,19 +4537,6 @@ metro-source-map@^0.80.3, metro-source-map@0.80.8:
   version "0.80.8"
   resolved "https://registry.npmjs.org/metro-source-map/-/metro-source-map-0.80.8.tgz"
   integrity sha512-+OVISBkPNxjD4eEKhblRpBf463nTMk3KMEeYS8Z4xM/z3qujGJGSsWUGRtH27+c6zElaSGtZFiDMshEb8mMKQg==
-
-metro-runtime@^0.80.3, metro-runtime@0.80.6:
-  version "0.80.6"
-  resolved "https://registry.npmjs.org/metro-runtime/-/metro-runtime-0.80.6.tgz"
-  integrity sha512-21GQVd0pp2nACoK0C2PL8mBsEhIFUFFntYrWRlYNHtPQoqDzddrPEIgkyaABGXGued+dZoBlFQl+LASlmmfkvw==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-
-metro-source-map@^0.80.3, metro-source-map@0.80.6:
-  version "0.80.6"
-  resolved "https://registry.npmjs.org/metro-source-map/-/metro-source-map-0.80.6.tgz"
-  integrity sha512-lqDuSLctWy9Qccu4Zl0YB1PzItpsqcKGb1nK0aDY+lzJ26X65OCib2VzHlj+xj7e4PiIKOfsvDCczCBz4cnxdg==
-
   dependencies:
     "@babel/traverse" "^7.20.0"
     "@babel/types" "^7.20.0"
@@ -4635,17 +4588,10 @@ metro-transform-worker@0.80.8:
     metro-transform-plugins "0.80.8"
     nullthrows "^1.1.1"
 
-
 metro@^0.80.3, metro@0.80.8:
   version "0.80.8"
   resolved "https://registry.npmjs.org/metro/-/metro-0.80.8.tgz"
   integrity sha512-in7S0W11mg+RNmcXw+2d9S3zBGmCARDxIwoXJAmLUQOQoYsRP3cpGzyJtc7WOw8+FXfpgXvceD0u+PZIHXEL7g==
-
-metro@^0.80.3, metro@0.80.6:
-  version "0.80.6"
-  resolved "https://registry.npmjs.org/metro/-/metro-0.80.6.tgz"
-  integrity sha512-f6Nhnht9TxVRP6zdBq9J2jNdeDBxRmJFnjxhQS1GeCpokBvI6fTXq+wHTLz5jZA+75fwbkPSzBxBJzQa6xi0AQ==
-
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.20.0"
@@ -5475,17 +5421,10 @@ react-native-vector-icons@>7.0.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-
 react-native@*, "react-native@>= 0.62", react-native@>=0.40, react-native@>=0.59, react-native@0.73.6:
   version "0.73.6"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.6.tgz"
   integrity sha512-oqmZe8D2/VolIzSPZw+oUd6j/bEmeRHwsLn1xLA5wllEYsZ5zNuMsDus235ONOnCRwexqof/J3aztyQswSmiaA==
-
-react-native@*, react-native@>=0.40, react-native@>=0.59, react-native@0.73.4:
-  version "0.73.4"
-  resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.4.tgz"
-  integrity sha512-VtS+Yr6OOTIuJGDECIYWzNU8QpJjASQYvMtfa/Hvm/2/h5GdB6W9H9TOmh13x07Lj4AOhNMx3XSsz6TdrO4jIg==
-
   dependencies:
     "@jest/create-cache-key-function" "^29.6.3"
     "@react-native-community/cli" "12.3.6"
@@ -5785,7 +5724,6 @@ semver@^6.3.1:
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
 semver@^7.3.5:
-
   version "7.6.0"
   resolved "https://registry.npmjs.org/semver/-/semver-7.6.0.tgz"
   integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
@@ -5800,28 +5738,11 @@ semver@^7.5.2:
     lru-cache "^6.0.0"
 
 semver@^7.5.3:
-
   version "7.6.0"
   resolved "https://registry.npmjs.org/semver/-/semver-7.6.0.tgz"
   integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
   dependencies:
     lru-cache "^6.0.0"
-
-
-semver@^7.5.2:
-  version "7.6.0"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.6.0.tgz"
-  integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
-  dependencies:
-    lru-cache "^6.0.0"
-
-semver@^7.5.3:
-  version "7.6.0"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.6.0.tgz"
-  integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
-  dependencies:
-    lru-cache "^6.0.0"
-
 
 semver@7.3.2:
   version "7.3.2"

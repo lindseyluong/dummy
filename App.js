@@ -5,12 +5,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LoginScreen from './view/loginPage';
-import Preferences from './view/preferencesPage';
+import PreferencesScreen from './view/preferencesPage';
 import MessageScreen from './view/messagePage';
 import EventSelectionScreen from './view/musicEventPage';
 import GenreSelectionScreen from './view/genrePage';
 import ProfileScreen from './view/profilePage';
 import GenderScreen from './view/genderPage';
+import AgeScreen from './view/agePage';
+import DistanceScreen from './view/distancePage';
+import ReligionScreen from './view/religionPage';
+import EthnicityScreen from './view/ethnicityPage';
 
 
 
@@ -67,8 +71,12 @@ const Stack = createNativeStackNavigator();
 function PreferencesStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Preferences" component={Preferences}/>
+      <Stack.Screen name="Preferences" component={PreferencesScreen}/>
       <Stack.Screen name="Gender" component={GenderScreen}/>
+      <Stack.Screen name="Age" component={AgeScreen}/>
+      <Stack.Screen name="Distance" component={DistanceScreen}/>
+      <Stack.Screen name="Religion" component={ReligionScreen}/>
+      <Stack.Screen name="Ethnicity" component={EthnicityScreen}/>
     </Stack.Navigator>
   );
 }
@@ -80,7 +88,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Login" component={LoginScreen} />
         <Tab.Screen name="Messages" component={MessageScreen} />
-        <Tab.Screen name="Preferences" component={PreferencesStack} options={{headerShown: false}}/>
+        <Tab.Screen name="Preference" component={PreferencesStack} options={{headerShown: false}}/>
         <Tab.Screen name="Home" component={ProfileScreen} />
         <Tab.Screen name="Events" component={EventSelectionScreen} />
         <Tab.Screen name="Explore Genre's" component={GenreSelectionScreen} />
