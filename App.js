@@ -30,7 +30,6 @@ function PreferencesStack() {
   );
 }
 
-<<<<<<< HEAD
 function HomePageStack(){
   return(
     <Stack.Navigator>
@@ -41,10 +40,7 @@ function HomePageStack(){
 }
 
 
-export default function App() {
-=======
 function InsidePagesNavigation(){
->>>>>>> 24bb175 (app.js update)
   return (
       <Tab.Navigator>
         <Tab.Screen name="Messages" component={MessageScreen} />
@@ -55,6 +51,7 @@ function InsidePagesNavigation(){
       </Tab.Navigator>
   );
 }
+
 
 
 // export default function App() {
