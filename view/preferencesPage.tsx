@@ -1,7 +1,9 @@
 /* @flow */
 import * as React from 'react';
-import {SafeAreaView, ScrollView, Text, View, StyleSheet} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View, StyleSheet, Pressable} from 'react-native';
 import { Slider } from "@miblanchard/react-native-slider";
+import { useNavigation } from '@react-navigation/native';
+
 
 // styles
 // import {
@@ -78,10 +80,25 @@ const SliderContainer = (props: {
     );
 };
 
-const PreferencesPage = () => (
+
+
+const PreferencesPage = ({navigation}) => (
     <SafeAreaView>
         <ScrollView contentContainerStyle={styles.container}>
+            <Pressable
+                onPress={() => {
+                    navigation.navigate('Gender')
+                }}
+                style={({pressed}) => [
+                {
+                    backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
 
+                }
+                ]}>
+                {({pressed}) => (
+                <Text>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+                )}
+            </Pressable>
             <SliderContainer
                 caption="Age range"
                 sliderValue={[18, 30]}>
@@ -106,7 +123,11 @@ const PreferencesPage = () => (
 
 
         </ScrollView>
+
     </SafeAreaView>
+
+
+
 );
 
 
