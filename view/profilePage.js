@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { Slider } from "@miblanchard/react-native-slider";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-
-
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   const [sliderValue, setSliderValue] = useState(0);
 
   const handlePlayPause = () => {
@@ -20,45 +21,80 @@ const ProfileScreen = () => {
     // Add logic for previous button
   };
 
+  const handleGestureEvent = (event) => {
+    if (event.nativeEvent.state === State.ACTIVE && event.nativeEvent.translationX > 50) {
+      navigation.goBack(); // Navigate back to the previous page
+    }
+  };
+
+  const handleHeartPress = () => {
+    // Add logic for heart press
+    console.log('Heart pressed!');
+  };
+
+  const handleShufflePress = () => {
+    // Add logic for shuffle press
+    console.log('Shuffle pressed!');
+  };
+
+  const windowWidth = Dimensions.get('window').width;
+  const iconMargin = (windowWidth - 60) / 4; // 60 is the total width of both icons and their margins
+
   return (
-    <View style={styles.container}>
-      <View style={styles.rectangle}>
-        <Text style={styles.text3}>A green flag is...</Text>
-        <Text style={styles.text4}>if you listen to the Super Mario Theme Song</Text>
-        <Slider
-          style={styles.slider}
-          minimumValue={0}
-          maximumValue={100}
-          minimumTrackTintColor="#808080"
-          maximumTrackTintColor="#9E9E9E"
-          thumbTintColor="#f2f2f2"
-          thumbStyle={styles.thumbStyle}
-          value={sliderValue}
-          onValueChange={(value) => setSliderValue(value)}
-        />
-        
-        <View style={styles.controlButtons}>
-          <TouchableOpacity onPress={handlePrevious} style={styles.controlButton}>
-            <Icon name="step-backward" size={30} color="white" />
-          </TouchableOpacity>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <PanGestureHandler
+          onGestureEvent={handleGestureEvent}
+          minDeltaX={10}
+          minDeltaY={10}
+          activeOffsetX={10}
+          activeOffsetY={10}
+      >
+        <View style={styles.container}>
+          <View style={styles.textContainer}>
+            <Text style={styles.text1}>Princess Peach</Text>
+            <Text style={styles.text2}>27</Text>
+          </View>
+          <Image source={require('./Peach.jpeg')} style={styles.image} />
+          <View style={styles.iconContainer}>
+            <TouchableOpacity onPress={handleShufflePress} style={[styles.icon, { marginLeft: iconMargin }]}>
+              <Icon name="random" size={30} color='rgb(51, 51, 51)' />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleHeartPress} style={[styles.icon, { marginRight: iconMargin }]}>
+              <Icon name="heart" size={30} color='rgb(51, 51, 51)' />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.rectangle}>
+            <Text style={styles.text3}>A green flag is...</Text>
+            <Text style={styles.text4}>if you listen to the Super Mario Theme Song</Text>
+            <Slider
+              style={styles.slider}
+              minimumValue={0}
+              maximumValue={100}
+              minimumTrackTintColor="#808080"
+              maximumTrackTintColor="#9E9E9E"
+              thumbTintColor="#f2f2f2"
+              thumbStyle={styles.thumbStyle}
+              value={sliderValue}
+              onValueChange={(value) => setSliderValue(value)}
+            />
+            
+            <View style={styles.controlButtons}>
+              <TouchableOpacity onPress={handlePrevious} style={styles.controlButton}>
+                <Icon name="step-backward" size={30} color="white" />
+              </TouchableOpacity>
 
-          <TouchableOpacity onPress={handlePlayPause} style={styles.controlButton}>
-            <Icon name="play" size={30} color="white" />
-          </TouchableOpacity>
+              <TouchableOpacity onPress={handlePlayPause} style={styles.controlButton}>
+                <Icon name="play" size={30} color="white" />
+              </TouchableOpacity>
 
-          <TouchableOpacity onPress={handleNext} style={styles.controlButton}>
-            <Icon name="step-forward" size={30} color="white" />
-          </TouchableOpacity>
+              <TouchableOpacity onPress={handleNext} style={styles.controlButton}>
+                <Icon name="step-forward" size={30} color="white" />
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.text1}>Princess Peach</Text>
-        <Text style={styles.text2}>27</Text>
-      </View>
-      <Image source={require('./Peach.jpeg')}
-      style={styles.image} />
-      
-    </View>
+      </PanGestureHandler> 
+    </GestureHandlerRootView>
   );
 };
 
@@ -73,11 +109,8 @@ const styles = StyleSheet.create({
     left: 25,
     right: 25,
     height: 170, // Adjust the height as needed
-    backgroundColor: 'rgb(51, 51, 51, 0.2)', // White color with 30% opacity
-    borderTopLeftRadius: 20, // Adjust the border radius as needed
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20, // Adjust the border radius as needed
+    backgroundColor: 'rgb(51, 51, 51)', // White color with 30% opacity
+    borderRadius: 20, 
     padding: 15,
   },
   slider: {
@@ -127,13 +160,17 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   image: {
-    borderTopLeftRadius: 20, // Adjust the border radius as needed
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius:20,
+    borderRadius: 20,
     marginHorizontal: 25,
     marginTop: 30,
   },
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+    marginHorizontal: 25,
+  },
+  icon: {},
 });
 
 export default ProfileScreen;
