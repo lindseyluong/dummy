@@ -15,7 +15,11 @@ import EmailScreen from './view/EmailScreen';
 import Password from './view/Password';
 import LikeScreen from './view/LikeScreen';
 import FinalScreen from './view/finalPage';
-
+import NameScreen from './view/NameScreen';
+import LocationScreen from './view/LocationScreen';
+import DatingType from './view/DatingType';
+import TypeScreen from './view/TypeScreen';
+import LookingFor from './view/LookingFor';
 import Preferences from './view/preferencesPage';
 import PhotoScreen from './view/PhotoScreen';
 
@@ -24,7 +28,7 @@ import MessageScreen from './view/messagePage';
 import EventSelectionScreen from './view/musicEventPage';
 import GenreSelectionScreen from './view/genrePage';
 import ProfileScreen from './view/profilePage';
-import GenderScreen from './view/genderPage';
+import GenderScreen from './view/GenderScreen';
 import AgeScreen from './view/agePage';
 import DistanceScreen from './view/distancePage';
 import ReligionScreen from './view/religionPage';
@@ -91,14 +95,21 @@ export default function App() {
       <Drawer.Navigator>
         <Drawer.Screen name="Login" component={LoginScreen}/>
         <Drawer.Screen name="Basic" component={BasicInfo}/>
+        <Drawer.Screen name="Name" component={NameScreen}/>
         <Drawer.Screen name="BirthDate" component={BirthScreen}/>
+        <Drawer.Screen name="Location" component={LocationScreen}/>
         <Drawer.Screen name="Email" component={EmailScreen}/>
         <Drawer.Screen name="Password" component={Password}/>
-        <Drawer.Screen name="PhotoScreen" component={PhotoScreen}/>
+        <Drawer.Screen name="Photos" component={PhotoScreen}/>
+        <Drawer.Screen name="LookingFor" component={LookingFor}/>
+        <Drawer.Screen name="Dating" component={DatingType}/>
+        <Drawer.Screen name="Type" component={TypeScreen}/>
+        <Drawer.Screen name="Gender" component={GenderScreen}/>
         <Drawer.Screen name="Explore Genre's" component={GenreSelectionScreen} />
         <Drawer.Screen name="Final" component={FinalScreen}/>
         <Drawer.Screen name="InsideApp" component={InsidePagesNavigation}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
+  
 }
