@@ -103,9 +103,9 @@ const LoginScreen = () => {
           <Text style={{ fontSize: 20, fontWeight: 'bold', marginTop: 25, color: '#581845' }}>The soundtrack to your love story</Text>
         </View>
 
-        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+        {/* <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
           <Image style={{ width: 100, height: 80, resizeMode: 'cover' }} source={{ uri: 'https://branditechture.agency/brand-logos/wp-content/uploads/wpdm-cache/Hinge-App-900x0.png' }} />
-        </View>
+        </View> */}
 
         <View style={{ marginTop: 20 }}>
           {option === 'Sign In' && (
