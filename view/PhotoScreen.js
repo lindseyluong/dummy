@@ -49,7 +49,7 @@ const PhotoScreen = () => {
     saveRegistrationProgress('Photos', {imageUrls});
 
     // Navigate to the next screen
-    navigation.navigate('Final'); // Navigate to the appropriate screen
+    navigation.navigate('Genre'); // Navigate to the appropriate screen
   };
 
   return (

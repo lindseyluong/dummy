@@ -27,7 +27,7 @@ const Password = () => {
       saveRegistrationProgress('Password', {password});
     }
     // Navigate to the next screen
-    navigation.navigate('BirthDate');
+    navigation.navigate('Birth');
   };
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
