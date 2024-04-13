@@ -20,7 +20,7 @@ app.use(express.json());
 const jwt = require('jsonwebtoken');
 
 mongoose
-  .connect("mongodb+srv://thaopham4018:<password01>@cluster0.tngqjqr.mongodb.net/")
+  .connect("mongodb+srv://mello:mello@cluster0.grsy9eq.mongodb.net/")
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -32,36 +32,8 @@ app.listen(port, () => {
   console.log('Server is running on 3000');
 });
 
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
-// const cors = require('cors');
 
-// const app = express();
-// const port = 5000;
-
-// app.use(cors());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-
-// // MongoDB connection string with placeholders for username, password, and database name
-// const mongoURI = 'mongodb+srv://mellodatingapp:<seniordesign>@cluster0.8pipfib.mongodb.net/';
-
-// mongoose
-//   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log('Connected to MongoDB');
-//     // Start the server
-//     app.listen(port, () => {
-//       console.log(`Server is running on port 3000`);
-//     });
-//   })
-//   .catch(error => {
-//     console.log('Error connecting to MongoDB', error);
-//   });
-
-
-// const User = require('./models/user');
+const User = require('./models/user');
 // const Chat = require('./models/message');
 
 // const generateToken = user => {
@@ -82,27 +54,27 @@ app.listen(port, () => {
 // };
 
 // // Backend Route to Create User and Generate Token
-// app.post('/register', async (req, res) => {
-//   try {
-//     // Extract user data from the request body
-//     const userData = req.body;
+app.post('/register', async (req, res) => {
+  try {
+    // Extract user data from the request body
+    const userData = req.body;
 
-//     // Create a new user using the User model
-//     const newUser = new User(userData);
+    // Create a new user using the User model
+    const newUser = new User(userData);
 
-//     await newUser.save();
+    await newUser.save();
 
-//     const secretKey = crypto.randomBytes(32).toString('hex');
+    const secretKey = crypto.randomBytes(32).toString('hex');
 
-//     // Generate a token for the new user (you may use JWT or any other token generation mechanism)
-//     const token = jwt.sign({userId: newUser._id}, secretKey, {expiresIn: '1d'});
-//     // Return the new user data along with the token
-//     res.status(201).json({token});
-//   } catch (error) {
-//     console.error('Error creating user:', error);
-//     res.status(500).json({error: 'Internal Server Error'});
-//   }
-// });
+    // Generate a token for the new user (you may use JWT or any other token generation mechanism)
+    const token = jwt.sign({userId: newUser._id}, secretKey, {expiresIn: '1d'});
+    // Return the new user data along with the token
+    res.status(201).json({token});
+  } catch (error) {
+    console.error('Error creating user:', error);
+    res.status(500).json({error: 'Internal Server Error'});
+  }
+});
 
 // // app.get('/user', async (req, res) => {
 // //   try {

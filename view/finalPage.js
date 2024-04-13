@@ -1,7 +1,122 @@
-import React from 'react';
 import { Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
+import { getRegistrationProgress, saveRegistrationProgress } from '../registrationUtils';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useRoute } from '@react-navigation/native';
+import axios from 'axios';
+import { AuthContext } from '../AuthContext';
 
 const FinalScreen = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const [userData, setUserData] = useState();
+  useEffect(() => {
+    getAllUserData();
+  }, []);
+
+  const { token, isLoading, setToken } = useContext(AuthContext);
+  
+
+  console.log(token);
+
+  useEffect(() => {
+    // Check if the token is set and not in loading state
+    if (token && token.token) { // Ensure token is defined and has a token property
+      // Navigate to the main screen
+      navigation.navigate('MainStack', { screen: 'Messages' });
+    }
+  }, [token, navigation]);
+
+  const getAllUserData = async () => {
+    try {
+      // Define an array to store data for each screen
+      const screens = [
+        'Name',
+        'Email',
+        'Password',
+        'Birth',
+        'Location',
+        'Gender',
+        'Type',
+        'Dating',
+        'LookingFor',
+        'Photos',
+        'Genre',
+      ]; // Add more screens as needed
+
+      // Define an object to store user data
+      let userData = {};
+
+      // Retrieve data for each screen and add it to the user data object
+      for (const screenName of screens) {
+        const screenData = await getRegistrationProgress(screenName);
+        if (screenData) {
+          userData = { ...userData, ...screenData }; // Merge screen data into user data
+        }
+      }
+
+      // Return the combined user data
+      setUserData(userData);
+    } catch (error) {
+      console.error('Error retrieving user data:', error);
+      return null;
+    }
+  };
+
+  const clearAllScreenData = async () => {
+    try {
+      const screens = [
+        'Name',
+        'Email',
+        'Password',
+        'BirthDate',
+        'Location',
+        'Gender',
+        'Type',
+        'Dating',
+        'LookingFor',
+        'Photos',
+        'Genre',
+        //'Login',
+      ];
+      // Loop through each screen and remove its data from AsyncStorage
+      for (const screenName of screens) {
+        const key = `registration_progress_${screenName}`;
+        await AsyncStorage.removeItem(key);
+      }
+      console.log('All screen data cleared successfully');
+    } catch (error) {
+      console.error('Error clearing screen data:', error);
+    }
+  };
+
+  const registerUser = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/register', userData).then(response => {
+        console.log(response);
+        const token = response.data.token;
+        AsyncStorage.setItem('token', token);
+        setToken(token);
+      });
+      // Assuming the response contains the user data and token
+
+      // Store the token in AsyncStorage
+      // navigation.replace('Main', {
+      //   screen: 'Home',
+      // });
+      //   navigation.replace('MainStack', {screen: 'Main'});
+
+      clearAllScreenData();
+    } catch (error) {
+      console.error('Error registering user:', error);
+      throw error; // Throw the error for handling in the component
+    }
+  };
+
+  console.log('user data', userData);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <View style={{ marginTop: 80 }}>
@@ -28,8 +143,8 @@ const FinalScreen = () => {
       </View>
 
       <Pressable
-        onPress={() => {}}
-        style={{ backgroundColor: '#900C3F', padding: 15, marginTop: 'auto' }}>
+        onPress={registerUser}
+        style={{ backgroundColor: '#900C3F', padding: 15, marginTop: 'auto', alignSelf: 'center' }}>
         <Text
           style={{
             textAlign: 'center',

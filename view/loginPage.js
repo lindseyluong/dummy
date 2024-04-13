@@ -69,7 +69,8 @@
 
 // export default LoginScreen;
 
-import React, { useState } from 'react';
+import { AuthContext } from '../AuthContext';
+import React, { useState, useContext } from 'react';
 import { View, Text, SafeAreaView, Image, TextInput, Pressable, KeyboardAvoidingView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -78,6 +79,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [option, setOption] = useState('Create account');
   const navigation = useNavigation(); // Access navigation object
+  const { token, isLoading,setToken } = useContext(AuthContext);
 
   const signInUser = () => {
     setOption('Sign In');
@@ -141,3 +143,4 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
+
