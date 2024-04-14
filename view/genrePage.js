@@ -242,3 +242,4 @@ const GenreSelectionScreen = () => {
 };
 
 export default GenreSelectionScreen;
+
