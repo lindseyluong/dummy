@@ -35,8 +35,8 @@ const userSchema = new Schema({
   //   type: String,
   //   required: true,
   // },
-  genre: {
-    type: String,
+  selectedGenres: {
+    type: [String], // Change type to an array of strings
     required: true,
   },
   datingPreferences: [
@@ -65,11 +65,11 @@ const userSchema = new Schema({
   //     },
   //   },
   // ],
-  //   genderPreference: {
-  //     type: String,
-  //     enum: ['male', 'female', 'both'],
-  //     required: true,
-  //   },
+    // genderPreference: {
+    //   type: String,
+    //   enum: ['male', 'female', 'both'],
+    //   required: true,
+    // },
   //   ageRangePreference: {
   //     min: {
   //       type: Number,
