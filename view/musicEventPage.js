@@ -1,51 +1,72 @@
-import React from 'react';
-import { View, Text, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Import Ionicons from expo/vector-icons
+import React, { useState, useEffect } from 'react';
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, Pressable } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const EventsSelectionScreen = () => {
-  // Dummy data representing concerts
-  const concerts = [
-    { id: 1, name: 'Concert 1', location: 'Location 1', date: '2022-10-20' },
-    { id: 2, name: 'Concert 2', location: 'Location 2', date: '2022-10-21' },
-    { id: 3, name: 'Concert 3', location: 'Location 3', date: '2022-10-22' },
-    { id: 4, name: 'Concert 4', location: 'Location 4', date: '2022-10-23' },
-    { id: 5, name: 'Concert 5', location: 'Location 5', date: '2022-10-24' },
-    // Add more concerts as needed
-  ];
+  const [option, setOption] = useState('Recent');
+  const [concerts, setConcerts] = useState([]);
 
-  // Function to handle selecting or deselecting a concert
-  const handleSelectConcert = (concertId) => {
-    // Toggle the selection status of the concert
-    // You can implement this logic based on your state management approach (e.g., useState)
-    console.log(`Concert ${concertId} selected or deselected`);
+  useEffect(() => {
+    // Fetch concerts data
+    const fetchConcerts = async () => {
+      // Dummy data representing concerts
+      const concertsData = [
+        { id: 1, name: 'Concert 1', location: 'Location 1', date: '2022-10-20' },
+        { id: 2, name: 'Concert 2', location: 'Location 2', date: '2022-10-21' },
+        { id: 3, name: 'Concert 3', location: 'Location 3', date: '2022-10-22' },
+        { id: 4, name: 'Concert 4', location: 'Location 4', date: '2022-10-23' },
+        { id: 5, name: 'Concert 5', location: 'Location 5', date: '2022-10-24' },
+      ];
+      setConcerts(concertsData);
+    };
+
+    fetchConcerts();
+  }, []);
+
+  // Function to handle refreshing concerts
+  const handleRefresh = () => {
+    // Implement logic to refresh concerts
+    console.log('Refreshing concerts...');
+  };
+
+  // Function to handle filtering concerts
+  const handleFilter = () => {
+    // Implement logic to open filter options
+    console.log('Opening filter options...');
   };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={{ flex: 1, padding: 16 }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 16 }}>Select concerts to attend:</Text>
-          <View>
-            {concerts.map(concert => (
-              <TouchableOpacity
-                key={concert.id}
-                style={{ marginBottom: 12, backgroundColor: '#f0f0f0', padding: 12, borderRadius: 8 }}
-                onPress={() => handleSelectConcert(concert.id)}
-              >
-                <Text style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4 }}>{concert.name}</Text>
-                <Text style={{ fontSize: 14, marginBottom: 4 }}>{concert.location}</Text>
-                <Text style={{ fontSize: 14, color: 'gray', marginBottom: 4 }}>Date: {concert.date}</Text>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 4 }}>
-                  <TouchableOpacity onPress={() => handleSelectConcert(concert.id)}>
-                    <Ionicons name="checkmark-circle-outline" size={24} color="green" style={{ marginRight: 8 }} />
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => handleSelectConcert(concert.id)}>
-                    <Ionicons name="close-circle-outline" size={24} color="red" />
-                  </TouchableOpacity>
-                </View>
-              </TouchableOpacity>
-            ))}
+      <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 15 }}>
+        <Text style={{ fontSize: 23, fontWeight: 'bold', marginTop: 15 }}>Concerts Selection</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Select concerts to attend:</Text>
+          <TouchableOpacity onPress={handleRefresh} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: '#008B8B', padding: 10, borderRadius: 30 }}>
+            <Ionicons name="refresh" size={24} color="white" />
+            <Text style={{ textAlign: 'center', fontWeight: 'bold', color: 'white' }}>Refresh</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+          <View style={{ width: 38, height: 38, borderRadius: 19, backgroundColor: '#D0D0D0', justifyContent: 'center', alignItems: 'center' }}>
+            <Ionicons name="filter" size={22} color="black" />
           </View>
+          <Pressable onPress={handleFilter} style={{ borderColor: 'transparent', borderWidth: 0.7, padding: 10, borderRadius: 20, backgroundColor: '#808080' }}>
+            <Text style={{ textAlign: 'center', fontSize: 14, fontWeight: '400', color: 'white' }}>Filter</Text>
+          </Pressable>
+        </View>
+        <View style={{ marginTop: 20 }}>
+          {concerts.map(concert => (
+            <Pressable key={concert.id} onPress={() => {}} style={{ padding: 20, borderColor: '#E0E0E0', borderWidth: 1, borderRadius: 7, marginBottom: 15 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-start', paddingHorizontal: 16, paddingVertical: 12, backgroundColor: '#f0f0f0', borderRadius: 5, marginBottom: 8 }}>
+                <View />
+                <View>
+                  <Text>{concert.name}</Text>
+                </View>
+              </View>
+              <Text style={{ fontSize: 22, fontWeight: 'bold' }}>{concert.location}</Text>
+              {/* Add more details about the concert */}
+            </Pressable>
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>

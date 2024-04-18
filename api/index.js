@@ -13,7 +13,7 @@ const io = require('socket.io')(http);
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 
@@ -67,12 +67,12 @@ app.post('/register', async (req, res) => {
     const secretKey = crypto.randomBytes(32).toString('hex');
 
     // Generate a token for the new user (you may use JWT or any other token generation mechanism)
-    const token = jwt.sign({userId: newUser._id}, secretKey, {expiresIn: '1d'});
+    const token = jwt.sign({ userId: newUser._id }, secretKey, { expiresIn: '1d' });
     // Return the new user data along with the token
-    res.status(201).json({token});
+    res.status(201).json({ token });
   } catch (error) {
     console.error('Error creating user:', error);
-    res.status(500).json({error: 'Internal Server Error'});
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
@@ -94,47 +94,47 @@ app.post('/register', async (req, res) => {
 // // });
 
 // //fetch users data
-// app.get('/users/:userId', async (req, res) => {
-//   try {
-//     const {userId} = req.params;
+app.get('/users/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
 
-//     const user = await User.findById(userId);
+    const user = await User.findById(userId);
 
-//     if (!user) {
-//       return res.status(500).json({message: 'User not found'});
-//     }
+    if (!user) {
+      return res.status(500).json({ message: 'User not found' });
+    }
 
-//     return res.status(200).json({user});
-//   } catch (error) {
-//     res.status(500).json({message: 'Error fetching the user details'});
-//   }
-// });
+    return res.status(200).json({ user });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching the user details' });
+  }
+});
 
 // //endpoint to login
-// app.post('/login', async (req, res) => {
-//   try {
-//     const {email, password} = req.body;
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-//     //check if the user exists already
-//     const user = await User.findOne({email});
-//     if (!user) {
-//       return res.status(401).json({message: 'Invalid email or password'});
-//     }
+    //check if the user exists already
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
 
-//     //check in password is correct
-//     if (user.password !== password) {
-//       return res.status(401).json({message: 'Invalide password'});
-//     }
+    //check in password is correct
+    if (user.password !== password) {
+      return res.status(401).json({ message: 'Invalide password' });
+    }
 
-//     const secretKey = crypto.randomBytes(32).toString('hex');
+    const secretKey = crypto.randomBytes(32).toString('hex');
 
-//     const token = jwt.sign({userId: user._id}, secretKey, {expiresIn: '1d'});
+    const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1d' });
 
-//     return res.status(200).json({token});
-//   } catch (error) {
-//     res.status(500).json({message: 'login failed'});
-//   }
-// });
+    return res.status(200).json({ token });
+  } catch (error) {
+    res.status(500).json({ message: 'login failed' });
+  }
+});
 
 // app.get('/matches', async (req, res) => {
 //   try {

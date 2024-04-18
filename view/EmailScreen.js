@@ -66,11 +66,11 @@ const EmailScreen = () => {
           }}>
           Please provide a valid email
         </Text>
-
+{/* 
         <Text style={{marginTop: 30, fontSize: 15, color: 'gray'}}>
           Email verification helps us keep your account secure.{' '}
-          <Text style={{color: '#581845', fontWeight: '500'}}>Learn more</Text>
-        </Text>
+          <Text style={{color: '#088335', fontWeight: '500'}}>Learn more</Text>
+        </Text> */}
         <TextInput
           autoFocus={true}
           value={email}
@@ -88,17 +88,17 @@ const EmailScreen = () => {
           placeholder="Enter your email"
           placeholderTextColor={'#BEBEBE'}
         />
-        <Text style={{color: 'gray', fontSize: 15, marginTop: 7}}>
+        {/* <Text style={{color: 'gray', fontSize: 15, marginTop: 7}}>
           Note: You will be asked to verify your email
-        </Text>
+        </Text> */}
         <TouchableOpacity
           onPress={handleNext}
           activeOpacity={0.8}
           style={{marginTop: 30, marginLeft: 'auto'}}>
           <MaterialCommunityIcons
-            name="arrow-right-circle"
+            name="arrow-right-bold-circle"
             size={45}
-            color="#581845"
+            color="#088335"
             style={{alignSelf: 'center', marginTop: 20}}
           />
         </TouchableOpacity>

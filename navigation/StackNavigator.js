@@ -19,6 +19,7 @@ import LookingFor from '../view/LookingFor';
 import PhotoScreen from '../view/PhotoScreen';
 import GenreSelectionScreen from '../view/genrePage';
 
+import HomeScreen from '../view/homePage';
 import MessageScreen from '../view/messagePage';
 import EventsSelectionScreen from '../view/musicEventPage';
 import GenderScreen from '../view/GenderScreen';
@@ -33,6 +34,8 @@ import GenderScreen from '../view/GenderScreen';
 // import EthnicityScreen from './view/ethnicityPage';
 // import PlaylistScreen from './view/playlistPage';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -44,7 +47,8 @@ import {AuthContext} from '../AuthContext';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
-  const Tab = createBottomTabNavigator();
+  // const Tab = createBottomTabNavigator();
+  const Tab = createMaterialBottomTabNavigator();
   const {isLoading, token} = useContext(AuthContext);
   // Ensure token is properly initialized
   console.log('token:', token);
@@ -66,22 +70,28 @@ const StackNavigator = () => {
           screenOptions={() => ({
             tabBarShowLabel: false,
           })}>
-        <Tab.Screen name="Messages" component={MessageScreen} />
-        <Tab.Screen name="Preference" component={PreferencesStack} options={{headerShown: false}}/>
+        <Tab.Screen name="Messages" component={MessageScreen} options={{ tabBarLabel: 'Messages', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/>
+        <Tab.Screen name="Likes" component={LikesScreen} options={{ tabBarLabel: 'Likes', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='heart' color={color} size={26}/>),}}/>
+        <Tab.Screen name="HomePage" component={HomeScreen} options={{ tabBarLabel: 'Home', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/>
+        {/* <Tab.Screen name="Preferences" component={PreferencesStack} options={{ tabBarLabel: 'Preferences', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/> */}
+        <Tab.Screen name="Events" component={EventsSelectionScreen} options={{ tabBarLabel: 'Events', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/>
         {/* <Tab.Screen name="Home" component={HomePageStack} options={{headerShown: false}}/> */}
-        <Tab.Screen name="LikeScreen" component={LikesScreen} />
-        <Tab.Screen name="Events" component={EventsSelectionScreen} />
         </Tab.Navigator>
     );
   }
 
   const AuthStack = () => (
     <Stack.Navigator>
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Login"
         component={LoginScreen}
         options={{headerShown: false}}
-      /> */}
+      />
       <Stack.Screen
         name="Basic"
         component={BasicInfo}

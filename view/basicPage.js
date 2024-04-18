@@ -5,21 +5,21 @@ const BasicInfo = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <View style={{ marginTop: 80 }}>
-        <Text style={styles.heading}>You're one of a kind.</Text>
-        <Text style={[styles.heading, { marginTop: 10 }]}>Your profile should be too.</Text>
+        <Text style={styles.heading}>Your playlist, your passion, your profile. Start your music love story today!</Text>
+
       </View>
 
       <View style={{ alignItems: 'center', marginTop: 40 }}>
         <Image
-          source={{ uri: 'https://cdn-icons-png.flaticon.com/128/4310/4310217.png' }}
-          style={{ width: 300, height: 260, resizeMode: 'cover' }}
+          source={{ uri: 'https://cdn-icons-png.flaticon.com/128/6092/6092417.png' }}
+          style={{ width: 200, height: 300, resizeMode: 'contain' }}
         />
       </View>
 
       <Pressable
         onPress={() => navigation.navigate('Name')}
-        style={[styles.button, { backgroundColor: '#900C3F' }]}>
-        <Text style={styles.buttonText}>Enter Basic Info</Text>
+        style={[styles.button, { backgroundColor: '#AAEEC3' }]}>
+        <Text style={styles.buttonText}>Enter your stats</Text>
       </Pressable>
     </SafeAreaView>
   );
@@ -35,12 +35,15 @@ const styles = StyleSheet.create({
   button: {
     padding: 15,
     marginTop: 'auto',
+    borderRadius: 200,
+    width: 250,
+    alignSelf: 'center',
   },
   buttonText: {
     textAlign: 'center',
-    color: 'white',
+    color: 'black',
     fontWeight: '600',
-    fontSize: 15,
+    fontSize: 20,
   },
 });
 

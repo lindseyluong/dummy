@@ -144,7 +144,8 @@ const FinalScreen = () => {
 
       <Pressable
         onPress={registerUser}
-        style={{ backgroundColor: '#900C3F', padding: 15, marginTop: 'auto', alignSelf: 'center' }}>
+        style={{ backgroundColor: '#088335', padding: 15, 
+        marginTop: 'auto', alignSelf: 'center', borderRadius: 10}}>
         <Text
           style={{
             textAlign: 'center',
