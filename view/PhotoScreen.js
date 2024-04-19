@@ -96,7 +96,7 @@ const PhotoScreen = () => {
               <Pressable
                 key={index}
                 style={{
-                  borderColor: '#581845',
+                  borderColor: '#088335',
                   borderWidth: url ? 0 : 2,
                   flex: 1,
                   justifyContent: 'center',
@@ -133,7 +133,7 @@ const PhotoScreen = () => {
               <Pressable
                 key={index}
                 style={{
-                  borderColor: '#581845',
+                  borderColor: '#088335',
                   borderWidth: url ? 0 : 2,
                   flex: 1,
                   justifyContent: 'center',
@@ -166,7 +166,7 @@ const PhotoScreen = () => {
             style={{
               fontSize: 15,
               fontWeight: '500',
-              color: '#581845',
+              color: '#088335',
               marginTop: 3,
             }}>
             Add four to six photos
@@ -213,7 +213,7 @@ const PhotoScreen = () => {
           <MaterialCommunityIcons
             name="arrow-right-circle"
             size={45}
-            color="#581845"
+            color="#088335"
             style={{alignSelf: 'center', marginTop: 20}}
           />
         </TouchableOpacity>

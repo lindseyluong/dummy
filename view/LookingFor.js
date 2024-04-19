@@ -81,7 +81,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={lookingFor == "Life Partner" ? '#581845' : '#F0F0F0'}
+                  color={lookingFor == "Life Partner" ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -96,7 +96,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={lookingFor == "Long-term relationship" ? '#581845' : '#F0F0F0'}
+                  color={lookingFor == "Long-term relationship" ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -111,7 +111,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={lookingFor == "Long-term relationship open to short" ? '#581845' : '#F0F0F0'}
+                  color={lookingFor == "Long-term relationship open to short" ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -126,7 +126,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={lookingFor == "Short-term relationship open to long" ? '#581845' : '#F0F0F0'}
+                  color={lookingFor == "Short-term relationship open to long" ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -141,7 +141,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={lookingFor == "Short-term relationship" ? '#581845' : '#F0F0F0'}
+                  color={lookingFor == "Short-term relationship" ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -156,7 +156,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={lookingFor == "Figuring out my dating goals" ? '#581845' : '#F0F0F0'}
+                  color={lookingFor == "Figuring out my dating goals" ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -169,7 +169,7 @@ import {
               alignItems: 'center',
               gap: 8,
             }}>
-            <AntDesign name="checksquare" size={26} color="#581845" />
+            <AntDesign name="checksquare" size={26} color="#088335" />
             <Text style={{fontSize: 15}}>Visible on profile</Text>
           </View>
           <TouchableOpacity
@@ -179,7 +179,7 @@ import {
             <MaterialCommunityIcons
               name="arrow-right-circle"
               size={45}
-              color="#581845"
+              color="#088335"
               style={{alignSelf: 'center', marginTop: 20}}
             />
           </TouchableOpacity>

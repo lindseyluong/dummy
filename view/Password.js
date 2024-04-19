@@ -43,7 +43,7 @@ const Password = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Fontisto name="email" size={26} color="black" />
+            <Fontisto name="key" size={26} color="black" />
           </View>
           <Image
             style={{width: 100, height: 40}}
@@ -90,7 +90,7 @@ const Password = () => {
           <MaterialCommunityIcons
             name="arrow-right-circle"
             size={45}
-            color="#581845"
+            color="#088335"
             style={{alignSelf: 'center', marginTop: 20}}
           />
         </TouchableOpacity>
