@@ -42,6 +42,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import 'react-native-gesture-handler';
 import {useContext} from 'react';
 import {AuthContext} from '../AuthContext';
+import ProfileScreen from '../view/profilePage';
 
 
 
@@ -71,7 +72,7 @@ const StackNavigator = () => {
             tabBarShowLabel: false,
           })}>
         <Tab.Screen name="Messages" component={MessageScreen} options={{ tabBarLabel: 'Messages', 
-        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/>
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='email-outline' color={color} size={26}/>),}}/>
         <Tab.Screen name="Likes" component={LikesScreen} options={{ tabBarLabel: 'Likes', 
         tabBarIcon: ({color})=> (<MaterialCommunityIcons name='heart' color={color} size={26}/>),}}/>
         <Tab.Screen name="HomePage" component={HomeScreen} options={{ tabBarLabel: 'Home', 
@@ -79,8 +80,9 @@ const StackNavigator = () => {
         {/* <Tab.Screen name="Preferences" component={PreferencesStack} options={{ tabBarLabel: 'Preferences', 
         tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/> */}
         <Tab.Screen name="Events" component={EventsSelectionScreen} options={{ tabBarLabel: 'Events', 
-        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/>
-        {/* <Tab.Screen name="Home" component={HomePageStack} options={{headerShown: false}}/> */}
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='music' color={color} size={26}/>),}}/>
+        <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: 'Profile', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='music' color={color} size={26}/>),}}/>
         </Tab.Navigator>
     );
   }
