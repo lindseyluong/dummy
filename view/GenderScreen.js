@@ -139,7 +139,7 @@ const GenderScreen = () => {
           activeOpacity={0.8}
           style={{marginTop: 30, marginLeft: 'auto'}}>
           <MaterialCommunityIcons
-            name="arrow-right-circle"
+            name="arrow-right-bold-circle"
             size={45}
             color="#088335"
             style={{alignSelf: 'center', marginTop: 20}}
