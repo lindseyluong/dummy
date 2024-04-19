@@ -26,7 +26,7 @@ const LocationScreen = () => {
                             alignItems: 'center',
                         }}>
                         <MaterialCommunityIcons
-                            name="cake-variant-outline"
+                            name="home"
                             size={26}
                             color="black"
                         />
@@ -54,7 +54,7 @@ const LocationScreen = () => {
                     <MaterialCommunityIcons
                         name="arrow-right-circle"
                         size={45}
-                        color="#581845"
+                        color="#088335"
                         style={{ alignSelf: 'center', marginTop: 20 }}
                     />
                 </TouchableOpacity>

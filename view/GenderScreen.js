@@ -48,7 +48,7 @@ const GenderScreen = () => {
               alignItems: 'center',
             }}>
             <MaterialCommunityIcons
-              name="cake-variant-outline"
+              name="star"
               size={26}
               color="black"
             />
@@ -87,7 +87,7 @@ const GenderScreen = () => {
               <FontAwesome
                 name="circle"
                 size={26}
-                color={gender == 'Men' ? '#581845' : '#F0F0F0'}
+                color={gender == 'Men' ? '#088335' : '#F0F0F0'}
               />
             </Pressable>
           </View>
@@ -103,7 +103,7 @@ const GenderScreen = () => {
               <FontAwesome
                 name="circle"
                 size={26}
-                color={gender == 'Women' ? '#581845' : '#F0F0F0'}
+                color={gender == 'Women' ? '#088335' : '#F0F0F0'}
               />
             </Pressable>
           </View>
@@ -118,7 +118,7 @@ const GenderScreen = () => {
               <FontAwesome
                 name="circle"
                 size={26}
-                color={gender == 'Non-binary' ? '#581845' : '#F0F0F0'}
+                color={gender == 'Non-binary' ? '#088335' : '#F0F0F0'}
               />
             </Pressable>
           </View>
@@ -131,7 +131,7 @@ const GenderScreen = () => {
             alignItems: 'center',
             gap: 8,
           }}>
-          <AntDesign name="checksquare" size={26} color="#581845" />
+          <AntDesign name="checksquare" size={26} color="#088335" />
           <Text style={{fontSize: 15}}>Visible on profile</Text>
         </View>
         <TouchableOpacity
@@ -141,7 +141,7 @@ const GenderScreen = () => {
           <MaterialCommunityIcons
             name="arrow-right-circle"
             size={45}
-            color="#581845"
+            color="#088335"
             style={{alignSelf: 'center', marginTop: 20}}
           />
         </TouchableOpacity>

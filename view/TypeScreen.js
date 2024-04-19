@@ -51,7 +51,7 @@ import {
                 alignItems: 'center',
               }}>
               <MaterialCommunityIcons
-                name="cake-variant-outline"
+                name="star"
                 size={26}
                 color="black"
               />
@@ -90,7 +90,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={type == 'Straight' ? '#581845' : '#F0F0F0'}
+                  color={type == 'Straight' ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -105,7 +105,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={type == 'Gay' ? '#581845' : '#F0F0F0'}
+                  color={type == 'Gay' ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -120,7 +120,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={type == 'Lesbian' ? '#581845' : '#F0F0F0'}
+                  color={type == 'Lesbian' ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -135,7 +135,7 @@ import {
                 <FontAwesome
                   name="circle"
                   size={26}
-                  color={type == 'Bisexual' ? '#581845' : '#F0F0F0'}
+                  color={type == 'Bisexual' ? '#088335' : '#F0F0F0'}
                 />
               </Pressable>
             </View>
@@ -148,7 +148,7 @@ import {
               alignItems: 'center',
               gap: 8,
             }}>
-            <AntDesign name="checksquare" size={26} color="#581845" />
+            <AntDesign name="checksquare" size={26} color="#088335" />
             <Text style={{fontSize: 15}}>Visible on profile</Text>
           </View>
           <TouchableOpacity
@@ -158,7 +158,7 @@ import {
             <MaterialCommunityIcons
               name="arrow-right-circle"
               size={45}
-              color="#581845"
+              color="#088335"
               style={{alignSelf: 'center', marginTop: 20}}
             />
           </TouchableOpacity>

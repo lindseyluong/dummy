@@ -108,7 +108,7 @@ import {
               placeholderTextColor={'#BEBEBE'}
             />
             <Text style={{fontSize: 15, color: 'gray', fontWeight: '500'}}>
-              Last match is optional.
+              Last name is optional.
             </Text>
           </View>
           <TouchableOpacity
@@ -118,7 +118,7 @@ import {
             <MaterialCommunityIcons
               name="arrow-right-circle"
               size={45}
-              color="#581845"
+              color="#088335"
               style={{alignSelf: 'center', marginTop: 20}}
             />
           </TouchableOpacity>
