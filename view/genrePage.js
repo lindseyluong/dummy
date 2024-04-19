@@ -288,7 +288,7 @@ const GenreSelectionScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-      <View style={{ flex: 1, justifyContent: 'space-between' }}>
+      <View style={{ flex: 1, justifyContent: 'space-around' }}>
         <View style={{ marginTop: 10 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View
@@ -320,7 +320,7 @@ const GenreSelectionScreen = () => {
           </Text>
         </View>
         <View>
-          <View style={{ paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: '#ccc' }}>
+          <View style={{ }}>
             <TextInput
               style={{ height: 50, borderWidth: 1, borderColor: '#ccc', borderRadius: 10, paddingHorizontal: 20, marginBottom: 50, fontSize: 25, fontWeight: 'bold', fontFamily: 'GeezaPro-Bold', color: '#088335' }}
               placeholder="Search Genre..."
@@ -344,8 +344,8 @@ const GenreSelectionScreen = () => {
           </View>
         </View>
       </View>
-      <TouchableOpacity onPress={handleNext} style={{ position: 'absolute', bottom: 10, right: 20, backgroundColor: '#088335', borderRadius: 40, width: 50, height: 50, justifyContent: 'center', alignItems: 'center' }}>
-        <MaterialCommunityIcons name="arrow-right-circle" size={45} color="#fff" />
+      <TouchableOpacity onPress={handleNext} style={{ position: 'absolute', bottom: 10, right: 30, backgroundColor: '#088335', borderRadius: 40, width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
+        <MaterialCommunityIcons name="arrow-right-bold" size={35} color="#fff" />
       </TouchableOpacity>
     </SafeAreaView>
   );
