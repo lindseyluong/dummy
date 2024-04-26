@@ -71,18 +71,20 @@ const StackNavigator = () => {
           screenOptions={() => ({
             tabBarShowLabel: false,
           })}>
+        <Tab.Screen name="HomePage" component={HomeScreen} options={{ tabBarLabel: 'Home', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/>
         <Tab.Screen name="Messages" component={MessageScreen} options={{ tabBarLabel: 'Messages', 
         tabBarIcon: ({color})=> (<MaterialCommunityIcons name='email-outline' color={color} size={26}/>),}}/>
         <Tab.Screen name="Likes" component={LikesScreen} options={{ tabBarLabel: 'Likes', 
         tabBarIcon: ({color})=> (<MaterialCommunityIcons name='heart' color={color} size={26}/>),}}/>
-        <Tab.Screen name="HomePage" component={HomeScreen} options={{ tabBarLabel: 'Home', 
-        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/>
+        {/* <Tab.Screen name="HomePage" component={HomeScreen} options={{ tabBarLabel: 'Home', 
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/> */}
         {/* <Tab.Screen name="Preferences" component={PreferencesStack} options={{ tabBarLabel: 'Preferences', 
         tabBarIcon: ({color})=> (<MaterialCommunityIcons name='home' color={color} size={26}/>),}}/> */}
         <Tab.Screen name="Events" component={EventsSelectionScreen} options={{ tabBarLabel: 'Events', 
         tabBarIcon: ({color})=> (<MaterialCommunityIcons name='music' color={color} size={26}/>),}}/>
         <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: 'Profile', 
-        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='music' color={color} size={26}/>),}}/>
+        tabBarIcon: ({color})=> (<MaterialCommunityIcons name='account' color={color} size={26}/>),}}/>
         </Tab.Navigator>
     );
   }
@@ -170,15 +172,15 @@ const StackNavigator = () => {
 
   function MainStack() {
     return (
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Main"
+      <Stack.Navigator> 
+        <Stack.Screen  
+          name="MainStack"
           component={BottomTabs}
           options={{headerShown: false}}
         />
         <Stack.Screen name="Messages" component={MessageScreen} options={{headerShown: false}} />
         <Stack.Screen name="Preference" component={PreferencesStack} options={{headerShown: false}}/>
-        {/* <Stack.Screen name="Home" component={HomePageStack} options={{headerShown: false}}/> */}
+        <Stack.Screen name="HomePage" component={HomeScreen} options={{headerShown: false}}/>
         <Stack.Screen name="LikeScreen" component={LikesScreen} options={{headerShown: false}}/>
         <Stack.Screen name="Events" component={EventsSelectionScreen} options={{headerShown: false}}/>
       </Stack.Navigator>
