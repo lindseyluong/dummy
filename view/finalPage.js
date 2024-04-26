@@ -25,7 +25,7 @@ const FinalScreen = () => {
     // Check if the token is set and not in loading state
     if (token && token.token) { // Ensure token is defined and has a token property
       // Navigate to the main screen
-      navigation.navigate('MainStack', { screen: 'Messages' });
+      navigation.navigate('MainStack', { screen: 'HomePage' });
     }
   }, [token, navigation]);
 
