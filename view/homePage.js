@@ -172,6 +172,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { jwtDecode } from 'jwt-decode';
+import 'core-js/stable/atob';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -195,6 +196,18 @@ const HomeScreen = () => {
       getUserDetails();
     }
   }, [userId]);
+
+
+
+  useEffect(() => {
+    showToken();
+  },[]);
+  const showToken = async () => {
+    const token = await AsyncStorage.getItem("token");
+    console.log('token', token);
+  };
+  console.log("userid", userId)
+
 
   useEffect(() => {
     if (!token) {
