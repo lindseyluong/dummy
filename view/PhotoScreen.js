@@ -9,11 +9,11 @@ import {
   Button,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import {
   getRegistrationProgress,
   saveRegistrationProgress,
@@ -35,6 +35,12 @@ const PhotoScreen = () => {
     }
   };
 
+  const handleDeleteImage = index => {
+    const updatedUrls = [...imageUrls];
+    updatedUrls[index] = '';
+    setImageUrls(updatedUrls);
+  };
+
   useEffect(() => {
     // Fetch the saved image URLs from AsyncStorage
     getRegistrationProgress('Photos').then(progressData => {
@@ -46,7 +52,7 @@ const PhotoScreen = () => {
 
   const handleNext = () => {
     // Save the current progress data including the image URLs
-    saveRegistrationProgress('Photos', {imageUrls});
+    saveRegistrationProgress('Photos', { imageUrls });
 
     // Navigate to the next screen
     navigation.navigate('Genre'); // Navigate to the appropriate screen
@@ -54,8 +60,8 @@ const PhotoScreen = () => {
 
   return (
     <SafeAreaView>
-      <View style={{marginTop: 90, marginHorizontal: 20}}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={{ marginTop: 90, marginHorizontal: 20 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
             style={{
               width: 44,
@@ -69,7 +75,7 @@ const PhotoScreen = () => {
             <MaterialIcons name="photo-camera-back" size={22} color="black" />
           </View>
           <Image
-            style={{width: 100, height: 40}}
+            style={{ width: 100, height: 40 }}
             source={{
               uri: 'https://cdn-icons-png.flaticon.com/128/10613/10613685.png',
             }}
@@ -84,17 +90,17 @@ const PhotoScreen = () => {
           }}>
           Pick your videos and photos
         </Text>
-        <View style={{marginTop: 20}}>
+        <View style={{ marginTop: 20 }}>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-
               gap: 20,
             }}>
             {imageUrls.slice(0, 3).map((url, index) => (
               <Pressable
                 key={index}
+                onPress={() => handleDeleteImage(index)} // Add onPress handler for deletion
                 style={{
                   borderColor: '#088335',
                   borderWidth: url ? 0 : 2,
@@ -107,7 +113,7 @@ const PhotoScreen = () => {
                 }}>
                 {url ? (
                   <Image
-                    source={{uri: url}}
+                    source={{ uri: url }}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -122,7 +128,7 @@ const PhotoScreen = () => {
             ))}
           </View>
         </View>
-        <View style={{marginTop: 20}}>
+        <View style={{ marginTop: 20 }}>
           <View
             style={{
               flexDirection: 'row',
@@ -132,6 +138,7 @@ const PhotoScreen = () => {
             {imageUrls.slice(3, 6).map((url, index) => (
               <Pressable
                 key={index}
+                onPress={() => handleDeleteImage(index + 3)} // Adjust index for second row
                 style={{
                   borderColor: '#088335',
                   borderWidth: url ? 0 : 2,
@@ -144,7 +151,7 @@ const PhotoScreen = () => {
                 }}>
                 {url ? (
                   <Image
-                    source={{uri: url}}
+                    source={{ uri: url }}
                     style={{
                       width: '100%',
                       height: '100%',
@@ -160,8 +167,8 @@ const PhotoScreen = () => {
           </View>
         </View>
 
-        <View style={{marginVertical: 10}}>
-          <Text style={{color: 'gray', fontSize: 15}}>Drag to reorder</Text>
+        <View style={{ marginVertical: 10 }}>
+          <Text style={{ color: 'gray', fontSize: 15 }}>Drag to reorder</Text>
           <Text
             style={{
               fontSize: 15,
@@ -173,7 +180,7 @@ const PhotoScreen = () => {
           </Text>
         </View>
 
-        <View style={{marginTop: 25}}>
+        <View style={{ marginTop: 25 }}>
           <Text>Add a picture of yourself</Text>
           <View
             style={{
@@ -186,7 +193,7 @@ const PhotoScreen = () => {
               backgroundColor: '#DCDCDC',
             }}>
             <EvilIcons
-              style={{marginLeft: 8}}
+              style={{ marginLeft: 8 }}
               name="image"
               size={22}
               color="black"
@@ -194,27 +201,26 @@ const PhotoScreen = () => {
             <TextInput
               value={imageUrl}
               onChangeText={text => setImageUrl(text)}
-              style={{color: 'gray', marginVertical: 10, width: 300}}
+              style={{ color: 'gray', marginVertical: 10, width: 300 }}
               placeholder="enter your image url"
             />
           </View>
           <Button
             onPress={handleAddImage}
-            style={{marginTop: 5}}
+            style={{ marginTop: 5 }}
             title="Add Image"
           />
         </View>
 
         <TouchableOpacity
-        //   onPress={() => navigation.navigate('Prompts')}
           onPress={handleNext}
           activeOpacity={0.8}
-          style={{marginTop: 30, marginLeft: 'auto'}}>
+          style={{ marginTop: 30, marginLeft: 'auto' }}>
           <MaterialCommunityIcons
             name="arrow-right-bold-circle"
             size={45}
             color="#088335"
-            style={{alignSelf: 'center', marginTop: 20}}
+            style={{ alignSelf: 'center', marginTop: 20 }}
           />
         </TouchableOpacity>
       </View>
